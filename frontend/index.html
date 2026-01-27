@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Analytics Platform</title>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Стили -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .controls {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 25px;
+    }
+
+    select, input, button {
+      padding: 10px 14px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+
+    button {
+      background: #4f46e5;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      background: #4338ca;
+    }
+
+    canvas {
+      margin-top: 20px;
+    }
+
+    .metrics {
+      background: #f9fafb;
+      margin-top: 25px;
+      padding: 15px;
+      border-radius: 10px;
+      font-size: 14px;
+    }
+
+    .metrics h3 {
+      margin-top: 0;
+    }
+
+    .metric-item {
+      margin: 6px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h2>📊 Analytics Dashboard</h2>
+
+    <div class="controls">
+      <select id="field">
+        <option value="field1">Field 1</option>
+        <option value="field2">Field 2</option>
+        <option value="field3">Field 3</option>
+      </select>
+
+      <input type="date" id="start">
+      <input type="date" id="end">
+
+      <button onclick="loadData()">Load Data</button>
+    </div>
+
+    <canvas id="chart"></canvas>
+
+    <div class="metrics" id="metricsBox" style="display:none;">
+      <h3>📈 Metrics</h3>
+      <div class="metric-item" id="avg"></div>
+      <div class="metric-item" id="min"></div>
+      <div class="metric-item" id="max"></div>
+      <div class="metric-item" id="std"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
